@@ -1,14 +1,10 @@
 #!/bin/bash
 
-DOTFILES_DIR="$HOME/Repos/github.com/Soeky/dotfiles"
+DOTFILES_DIR="$HOME/repos/github.com/Soeky/dotfiles"
 XDG_CONFIG_HOME="$HOME/.config"
 REPOS="$HOME/repos"
 GHREPOS="$REPOS/github.com/Soeky"
 SCRIPTS="$DOTFILES_DIR/scripts"
-
-install_packages() {
-  sudo pacman -S --needed gh nvim fzf tmux bat
-}
 
 create_directories() {
   local directories=("$@")
@@ -40,15 +36,17 @@ create_symlinks() {
 common_items=(
   ".tmux.conf:$HOME/.tmux.conf"
   "nvim:$XDG_CONFIG_HOME/nvim"
-  "bash/.bashrc:$HOME/.bashrc"
-  "bash/.bash_profile:$HOME/.bash_profile"
+  ".bashrc:$HOME/.bashrc"
+  ".bash_profile:$HOME/.bash_profile"
 )
 
 
-# Ablauf des Setups
-install_packages
-create_directories "$HOME/.local/bin" "$REPOS" "$GHREPOS" "$SCRIPTS"
+
+
+create_directories "$DOTFILES_DIR" "$HOME/.local/bin" "$REPOS" "$GHREPOS" "$SCRIPTS"
 create_symlinks "${common_items[@]}"
 
-echo "Sourcing the new .bashrc..."
-source "$HOME/.bashrc"
+ln -sf "$PWD/bash/.bash_profile" "$HOME"/.bash_profile
+ln -sf "$PWD/bash/.bashrc" "$HOME"/.bashrc
+
+
