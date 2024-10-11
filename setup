@@ -1,0 +1,54 @@
+#!/bin/bash
+
+DOTFILES_DIR="$HOME/Repos/github.com/mischavandenburg/dotfiles"
+XDG_CONFIG_HOME="$HOME/.config"
+REPOS="$HOME/repos"
+GHREPOS="$REPOS/github.com/Soeky"
+SCRIPTS="$DOTFILES_DIR/scripts"
+
+install_packages() {
+  sudo pacman -S --needed gh nvim fzf tmux bat
+}
+
+create_directories() {
+  local directories=("$@")
+  for dir in "${directories[@]}"; do
+    mkdir -p "$dir"
+  done
+}
+
+create_symlinks() {
+  local items=("$@")
+  for item in "${items[@]}"; do
+    IFS=':' read -r source target <<<"$item"
+    if [ -L "$target" ]; then
+      echo "Removing existing symlink $target"
+      unlink "$target"
+    elif [ -d "$target" ]; then
+      echo "Warning: $target is a directory. Skipping..."
+      continue
+    elif [ -e "$target" ]; then
+      echo "Warning: $target already exists. Skipping..."
+      continue
+    fi
+    ln -s "$DOTFILES_DIR/$source" "$target"
+    echo "Created symlink for $source"
+  done
+}
+
+
+common_items=(
+  ".tmux.conf:$HOME/.tmux.conf"
+  "nvim:$XDG_CONFIG_HOME/nvim"
+  "bash/.bashrc:$HOME/.bashrc"
+  "bash/.bash_profile:$HOME/.bash_profile"
+)
+
+
+# Ablauf des Setups
+install_packages
+create_directories "$HOME/.local/bin" "$REPOS" "$GHREPOS" "$SCRIPTS"
+create_symlinks "${common_items[@]}"
+
+echo "Sourcing the new .bashrc..."
+source "$HOME/.bashrc"
