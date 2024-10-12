@@ -81,6 +81,7 @@ alias dot='cd $GHREPOS/dotfiles'
 alias repos='cd $REPOS'
 alias ghrepos='cd $GHREPOS'
 alias rwdot='cd $REPOS/github.com/rwxrob/dot'
+alias scripts='cd $GHREPOS/dotfiles/scripts'
 
 alias c="clear"
 alias rob='cd $REPOS/github.com/rwxrob'
