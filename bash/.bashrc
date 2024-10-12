@@ -107,3 +107,20 @@ alias sbr='source ~/.bashrc'
 alias fp="fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'"
 # search for a file with fzf and open it in vim
 alias vf='v $(fp)'
+
+# Farben
+# Git-Prompt-Optionen
+export GIT_PS1_SHOWDIRTYSTATE=1
+export GIT_PS1_SHOWSTASHSTATE=1
+export GIT_PS1_SHOWUNTRACKEDFILES=1
+export GIT_PS1_SHOWCOLORHINTS=1
+export GIT_PS1_DESCRIBE_STYLE="branch"
+# export GIT_PS1_SHOWUPSTREAM="auto git"
+
+# git-prompt.sh einbinden
+if [ -f /usr/share/git/completion/git-prompt.sh ]; then
+    source /usr/share/git/completion/git-prompt.sh
+fi
+
+# Farben und Prompt-Konfiguration
+PROMPT_COMMAND='__git_ps1 "\[\e[33m\]\u\[\e[0m\]@\[\e[34m\]\h\[\e[0m\]:\[\e[35m\]\W\[\e[0m\]" " \n$ "'
