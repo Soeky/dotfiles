@@ -48,5 +48,6 @@ create_symlinks "${common_items[@]}"
 
 ln -sf "$PWD/bash/.bash_profile" "$HOME"/.bash_profile
 ln -sf "$PWD/bash/.bashrc" "$HOME"/.bashrc
-
+ln -sf "$PWD/i3/" "$XDG_CONFIG_HOME"
+ln -sf "$PWD/i3blocks/" "$XDG_CONFIG_HOME"
 
