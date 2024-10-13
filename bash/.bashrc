@@ -117,6 +117,7 @@ export GIT_PS1_SHOWCOLORHINTS=1
 export GIT_PS1_DESCRIBE_STYLE="branch"
 # export GIT_PS1_SHOWUPSTREAM="auto git"
 
+
 # git-prompt.sh einbinden
 if [ -f /usr/share/git/completion/git-prompt.sh ]; then
     source /usr/share/git/completion/git-prompt.sh
@@ -124,3 +125,21 @@ fi
 
 # Farben und Prompt-Konfiguration
 PROMPT_COMMAND='__git_ps1 "\[\e[33m\]\u\[\e[0m\]@\[\e[34m\]\h\[\e[0m\]:\[\e[35m\]\W\[\e[0m\]" " \n$ "'
+
+# Bash Completion aktivieren
+if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+fi
+
+# Autocompletion für Aliase aktivieren
+shopt -s progcomp
+
+# Git Autocompletion
+if [ -f /usr/share/git/completion/git-completion.bash ]; then
+    . /usr/share/git/completion/git-completion.bash
+fi
+
+# Bash-Syntax-Hervorhebung
+source ~/.bash-syntax-highlighting/bash_completion
+# Fuzzy completion
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
