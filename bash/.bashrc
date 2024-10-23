@@ -108,6 +108,13 @@ alias ev='v ~/.config/nvim/init.lua'
 alias sbr='source ~/.bashrc'
 
 
+# pomo alias
+
+alias focus='pomo start 25m'
+alias focusp='pomo start 5m'
+alias lp='pomo start 15m'
+
+
 # fzf aliases
 # use fp to do a fzf search and preview the files
 alias fp="fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'"
