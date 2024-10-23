@@ -29,6 +29,7 @@ export DOTFILES="$GHREPOS/dotfiles"
 export DEV="$GHREPOS/dev"
 export SCRIPTS="$DOTFILES/scripts"
 export NOTES="$GHREPOS/notes"
+export XDG_CONFIG_HOME="$HOME"/.config
 
 PATH="${PATH:+${PATH}:}"$SCRIPTS":"$HOME"/.local/bin"
 
@@ -38,6 +39,11 @@ export HISTFILE=~/.histfile
 export HISTSIZE=25000
 export SAVEHIST=25000
 export HISTCONTROL=ignorespace
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~ FOR GO ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+export GOPATH=$HOME/go
+export GOBIN=$GOPATH/bin
+export PATH=$PATH:$GOBIN
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~ Functions ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -140,6 +146,6 @@ if [ -f /usr/share/git/completion/git-completion.bash ]; then
 fi
 
 # Bash-Syntax-Hervorhebung
-source ~/.bash-syntax-highlighting/bash_completion
+# source ~/.bash-syntax-highlighting/bash_completion
 # Fuzzy completion
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
