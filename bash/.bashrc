@@ -44,6 +44,7 @@ export HISTCONTROL=ignorespace
 export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOBIN
+export LOG_FILES="$HOME/logs"
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~ Functions ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -109,10 +110,10 @@ alias sbr='source ~/.bashrc'
 
 
 # pomo alias
-
-alias focus='pomo start 25m'
-alias focusp='pomo start 5m'
-alias lp='pomo start 15m'
+POMO_LOG="$LOG_FILES/.pomo_sessions.log"
+alias focus='echo "$(date +%s) work" >> $POMO_LOG && pomo start 25m'
+alias focusp='echo "$(date +%s) break" >> $POMO_LOG && pomo start 5m'
+alias lp='echo "$(date +%s) break" >> $POMO_LOG && pomo start 15m'
 
 
 # fzf aliases
