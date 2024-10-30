@@ -79,7 +79,7 @@ alias grep="grep --color=auto"
 alias v="nvim"
 alias ..="cd .."
 alias v.="nvim ."
-alias sd="shutdown now"
+alias sd="pomoprocess && shutdown now"
 alias ...="cd /home/seymen/"
 
 # Repos
