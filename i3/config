@@ -218,8 +218,8 @@ bar {
 #assign [class="URxvt"] 2
 #for_window [class="class_name"] move to workspace $[workspace_variable]
 
-for_window [class="Chromium"] move to workspace $ws1
-exec --no-startup-id chromium
+for_window [class="firefox"] move to workspace $ws1
+exec --no-startup-id firefox
 
 for_window [class="kate"] move to workspace $ws4
 exec --no-startup-id kate

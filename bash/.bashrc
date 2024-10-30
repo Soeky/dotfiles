@@ -113,6 +113,7 @@ alias sbr='source ~/.bashrc'
 POMO_LOG="$LOG_FILES/.pomo_sessions.log"
 alias focus='echo "$(date +%s) work" >> $POMO_LOG && pomo start 25m'
 alias focusp='echo "$(date +%s) break" >> $POMO_LOG && pomo start 5m'
+alias focushour='echo "$(date +%s) work" >> $POMO_LOG && pomo start hour'
 alias lp='echo "$(date +%s) break" >> $POMO_LOG && pomo start 15m'
 
 
