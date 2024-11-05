@@ -45,6 +45,9 @@ export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOBIN
 export LOG_FILES="$HOME/logs"
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~ Flutter ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+PATH="~/repos/github.com/Soeky/dev/flutter/bin/:$PATH"
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~ Functions ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -81,6 +84,11 @@ alias ..="cd .."
 alias v.="nvim ."
 alias sd="pomoprocess && shutdown now"
 alias ...="cd /home/seymen/"
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~ UNI ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+alias pgdp="cd $DEV/3cs/pgdp/"
+alias itsec="cd $DEV/3cs/itsec/"
+alias gbs="cd $DEV/3cs/gbs/"
 
 # Repos
 alias dev='cd $DEV'
