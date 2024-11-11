@@ -47,6 +47,10 @@ export PATH=$PATH:$GOBIN
 export LOG_FILES="$HOME/logs"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~ Flutter ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+export ANDROID_HOME=~/Android/Sdk
+export CHROME_EXECUTABLE=/usr/bin/chromium
+PATH=$PATH:$ANDROID_HOME/cmdline-tools/latest/bin
+PATH=$PATH:$ANDROID_HOME/platform-tools
 PATH="~/repos/github.com/Soeky/dev/flutter/bin/:$PATH"
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~ Functions ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -97,6 +101,8 @@ alias repos='cd $REPOS'
 alias ghrepos='cd $GHREPOS'
 alias rwdot='cd $REPOS/github.com/rwxrob/dot'
 alias scripts='cd $GHREPOS/dotfiles/scripts'
+alias yltm='cd $GHREPOS/yltm/'
+alias comp='cd $GHREPOS/cp/'
 
 alias c="clear"
 alias rob='cd $REPOS/github.com/rwxrob'
