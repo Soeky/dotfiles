@@ -1,0 +1,41 @@
+#!/bin/bash
+
+# Überprüfen, ob der Benutzer eine Anzahl an Aufgaben angegeben hat
+if [ "$#" -ne 1 ]; then
+    echo "Usage: $0 <number_of_tasks>"
+    exit 1
+fi
+
+# Anzahl der Aufgaben von der Eingabe übernehmen
+num_tasks=$1
+
+# Template, das in jede Datei geschrieben wird
+template_content='#include <iostream>
+#define ll long long
+
+using namespace std;
+
+void solve(){
+}
+
+int main(){
+    ll tt;
+    cin >> tt;
+    while (tt--) {
+        solve();
+    }
+    return 0;
+}
+'
+
+# Liste der Dateinamen (A.cpp, B.cpp, ..., F.cpp)
+letters=(A B C D E F G H I J K L M N O P Q R S T U V W X Y Z)
+
+# Dateien erstellen
+for ((i=0; i<num_tasks; i++)); do
+    filename="${letters[$i]}.cpp" # Wähle den Buchstaben aus der Liste
+    echo "$template_content" > "$filename"
+    echo "Created $filename"
+done
+
+echo "All files created successfully!"
