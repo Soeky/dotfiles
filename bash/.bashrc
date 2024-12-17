@@ -86,7 +86,7 @@ alias grep="grep --color=auto"
 alias v="nvim"
 alias ..="cd .."
 alias v.="nvim ."
-alias sd="pomoprocess && shutdown now"
+alias sd="shutdown now"
 alias ...="cd /home/seymen/"
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~ UNI ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -103,6 +103,7 @@ alias rwdot='cd $REPOS/github.com/rwxrob/dot'
 alias scripts='cd $GHREPOS/dotfiles/scripts'
 alias yltm='cd $GHREPOS/yltm/'
 alias comp='cd $GHREPOS/cp/'
+alias aoc='cd $GHREPOS/aoc/'
 
 alias c="clear"
 alias rob='cd $REPOS/github.com/rwxrob'
