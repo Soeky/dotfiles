@@ -104,6 +104,7 @@ alias scripts='cd $GHREPOS/dotfiles/scripts'
 alias yltm='cd $GHREPOS/yltm/'
 alias comp='cd $GHREPOS/cp/'
 alias aoc='cd $GHREPOS/aoc/'
+alias gendev='cd $GHREPOS/gendev/'
 
 alias c="clear"
 alias rob='cd $REPOS/github.com/rwxrob'
