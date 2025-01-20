@@ -3,7 +3,7 @@
 # Define log file and date format
 LOG_FILE="$HOME/logs/.pomo_sessions.log"
 today=$(date '+%Y-%m-%d')
-note_path="$HOME/notes/Periodic Notes/0_Daily/$today.md"
+note_path="$NOTES/Periodic Notes/0_Daily/$today.md"
 
 # Initialize counters
 total_work_time=0
