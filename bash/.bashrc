@@ -105,6 +105,7 @@ alias yltm='cd $GHREPOS/yltm/'
 alias comp='cd $GHREPOS/cp/'
 alias aoc='cd $GHREPOS/aoc/'
 alias gendev='cd $GHREPOS/gendev/'
+alias notes='cd $NOTES'
 
 alias c="clear"
 alias rob='cd $REPOS/github.com/rwxrob'
