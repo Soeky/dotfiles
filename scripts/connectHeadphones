@@ -1,0 +1,3 @@
+#!/bin/bash
+
+bluetoothctl connect BC:87:FA:28:74:FF
