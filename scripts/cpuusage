@@ -1,12 +1,38 @@
-#!/bin/bash
+#!/usr/bin/env sh
 
+# CPU-Nutzung berechnen
 cpu_usage=$(grep 'cpu ' /proc/stat | awk -v RS="" '{usage=($2+$4)*100/($2+$4+$5)} END {print usage}')
-printf "CPU: %.1f%%\n" "$cpu_usage"
 
-if [ "$(echo "$cpu_usage > 90" | bc -l)" -eq 1 ]; then
-    echo "#FF0000"
-elif [ "$(echo "$cpu_usage > 80" | bc -l)" -eq 1 ]; then
-    echo "#FFAE00"
-elif [ "$(echo "$cpu_usage > 70" | bc -l)" -eq 1 ]; then
-    echo "#FFF600"
+# CPU-Temperatur lesen
+cpu_temp_raw=$(cat /sys/class/thermal/thermal_zone0/temp 2>/dev/null)
+if [ -z "$cpu_temp_raw" ]; then
+    cpu_temp="N/A"
+else
+    cpu_temp=$(awk "BEGIN {printf \"%.1f\", $cpu_temp_raw / 1000}")
 fi
+
+# Ausgabe vorbereiten
+if [ "$cpu_temp" != "N/A" ]; then
+    output=$(printf "CPU: %.1f%% Temp: %s°C" "$cpu_usage" "$cpu_temp")
+else
+    output=$(printf "CPU: %.1f%% Temp: Not available" "$cpu_usage")
+fi
+
+# Farbe festlegen
+color="#FFFFFF"
+if [ "$cpu_temp" != "N/A" ] && [ "$(echo "$cpu_temp > 85" | bc -l)" -eq 1 ]; then
+    color="#FF0000" # Hohe Temperatur (kritisch)
+elif [ "$cpu_temp" != "N/A" ] && [ "$(echo "$cpu_temp > 75" | bc -l)" -eq 1 ]; then
+    color="#FFAE00" # Hohe Temperatur (Warnung)
+elif [ "$(echo "$cpu_usage > 90" | bc -l)" -eq 1 ]; then
+    color="#FF0000" # Hohe CPU-Auslastung (kritisch)
+elif [ "$(echo "$cpu_usage > 80" | bc -l)" -eq 1 ]; then
+    color="#FFAE00" # Hohe CPU-Auslastung (Warnung)
+elif [ "$(echo "$cpu_usage > 70" | bc -l)" -eq 1 ]; then
+    color="#FFF600" # Mittlere CPU-Auslastung
+fi
+
+# Ausgabe für i3blocks
+echo "$output"
+echo "$output"
+echo "$color"
