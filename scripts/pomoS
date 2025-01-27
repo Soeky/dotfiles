@@ -2,3 +2,4 @@
 
 pomo_status=$(/home/seymen/go/bin/pomo print)
 echo "$pomo_status"
+

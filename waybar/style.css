@@ -1,0 +1,30 @@
+#custom-disk,
+#custom-cpu,
+#custom-memory,
+#custom-pomodoro,
+#clock,
+#custom-battery {
+  padding-right: 8px;
+  padding-left: 8px;
+  border-right: 1px solid #6c3483;
+  color: white;
+}
+
+#bar {
+  /* Schwarze Bar mit 50% Transparenz */
+  border: none;
+  /* Optional: Entfernt Bar-Rahmen */
+}
+
+window#waybar {
+  color: rgba(255, 255, 255, 1);
+  background: transparent;
+}
+
+* {
+  border: none;
+  font-family: 'JetBrainsMono Nerd Font', 'Symbols Only';
+  font-size: 16px;
+  min-height: 30px;
+  /* height: 30px; */
+}

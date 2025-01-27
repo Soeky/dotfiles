@@ -4,24 +4,60 @@
     "height": 20,
     "modules-left": ["hyprland/workspaces"],
     "modules-center": [],
-    "modules-right": [],
-    "hyprland/workspaces": {
-        "format": "{icon}",
-        "format-icons": {
-            "1": " Browser",
-            "2": " Work",
-            "3": " Terminal",
-            "4": " Notes",
-            "5": " Chat",
-            "6": " Music",
-            "7": " Uni",
-            "8": " Android",
-            "9": " Misc",
-            "10": " Misc"
-        },
-        "all-outputs": true, // Zeigt die Workspaces für jeden Bildschirm separat an
-        "persistent_workspaces": {
-            "*": 1
-        }
+    "modules-right": ["custom/disk", "custom/cpu", "custom/memory", "custom/pomodoro", "custom/battery", "clock"],
+
+  "hyprland/workspaces": {
+    "disable-scroll": true,
+    "active-only": false,
+    "all-outputs": true,
+    "warp-on-scroll": false,
+    "format": "{icon}",
+    "format-icons": {
+      "1": "<span color='#6c3483' > </span>",
+      "2": "<span color='#6c3483' > </span>",
+      "3": "<span color='#6c3483' > </span>",
+      "4": "<span color='#6c3483' > </span>",
+      "5": "<span color='#6c3483' > </span>",
+      "6": "<span color='#6c3483' > </span>",
+      "7": "<span color='#6c3483' > </span>",
+      "default": "<span color='#6c3483'>󰊠</span>",
     },
+    "persistent-workspaces": {
+        "*": 3
+    }
+  },
+
+    "clock": {
+        "format": "{:%Y-%m-%d %H:%M:%S}"
+    },
+
+    "custom/disk": {
+        "exec": "/home/seymen/repos/github.com/Soeky/dotfiles/scripts/disk",
+        "return-type": "text",
+        "interval": 30
+    },
+
+    "custom/cpu": {
+        "exec": "/home/seymen/repos/github.com/Soeky/dotfiles/scripts/cpuusage",
+        "return-type": "text",
+        "interval": 2
+    },
+
+    "custom/memory": {
+        "exec": "/home/seymen/repos/github.com/Soeky/dotfiles/scripts/memory",
+        "return-type": "text",
+        "interval": 2
+    },
+
+    "custom/pomodoro": {
+        "exec": "/home/seymen/repos/github.com/Soeky/dotfiles/scripts/pomoS",
+        "return-type": "text",
+        "interval": 1
+    },
+
+    "custom/battery": {
+        "exec": "/home/seymen/repos/github.com/Soeky/dotfiles/scripts/battery",
+        "return-type": "text",
+        "interval": 30
+    }
 }
