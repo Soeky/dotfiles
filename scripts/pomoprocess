@@ -32,3 +32,6 @@ done < "$LOG_FILE"
 echo -e "\n# Pomodoro Summary\n" >> "$note_path"
 echo "Total Work Time: $((total_work_time / 3600))h $(((total_work_time % 3600) / 60))m" >> "$note_path"
 echo "Total Break Time: $((total_break_time / 3600))h $(((total_break_time % 3600) / 60))m" >> "$note_path"
+
+echo "Total Work Time: $((total_work_time / 3600))h $(((total_work_time % 3600) / 60))m"
+echo "Total Break Time: $((total_break_time / 3600))h $(((total_break_time % 3600) / 60))m"
