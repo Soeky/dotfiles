@@ -127,12 +127,13 @@ alias sbr='source ~/.bashrc'
 
 
 # pomo alias
-POMO_LOG="$LOG_FILES/.pomo_sessions.log"
-alias focus='echo "$(date +%s) work" >> $POMO_LOG && pomo start 25m'
-alias focusp='echo "$(date +%s) break" >> $POMO_LOG && pomo start 5m'
-alias focushour='echo "$(date +%s) work" >> $POMO_LOG && pomo start hour'
-alias lp='echo "$(date +%s) break" >> $POMO_LOG && pomo start 15m'
+POMO_LOG="$HOME/logs/.pomo_sessions.log"
+POMO_SCRIPT="$SCRIPTS/pomo_script"
 
+alias focus='echo "$(date +%s) work" >> $POMO_LOG && $POMO_SCRIPT && pomo start 25m'
+alias focusp='echo "$(date +%s) break" >> $POMO_LOG && $POMO_SCRIPT && pomo start 5m'
+alias focushour='echo "$(date +%s) work" >> $POMO_LOG && $POMO_SCRIPT && pomo start hour'
+alias lp='echo "$(date +%s) break" >> $POMO_LOG && $POMO_SCRIPT && pomo start 15m'
 
 # fzf aliases
 # use fp to do a fzf search and preview the files

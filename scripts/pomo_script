@@ -1,0 +1,46 @@
+#!/bin/bash
+
+# Pfad zur Log-Datei
+LOG_FILE="$HOME/logs/.pomo_sessions.log"
+today=$(date '+%Y-%m-%d')
+
+# Initialisiere Variablen
+previous_type=""
+previous_timestamp=0
+total_work_time=0
+total_break_time=0
+
+# Lese das Logfile Zeile für Zeile
+while IFS=' ' read -r timestamp type; do
+    entry_date=$(date -d @"$timestamp" '+%Y-%m-%d')
+
+    if [[ "$entry_date" == "$today" ]]; then
+        # Berechne die Dauer des vorherigen Blocks
+        if [[ -n "$previous_timestamp" ]]; then
+            duration=$((timestamp - previous_timestamp))
+
+            if [[ "$previous_type" == "work" ]]; then
+                total_work_time=$((total_work_time + duration))
+            elif [[ "$previous_type" == "break" ]]; then
+                total_break_time=$((total_break_time + duration))
+            fi
+        fi
+
+        # Speichere den aktuellen Typ für die nächste Iteration
+        previous_timestamp=$timestamp
+        previous_type=$type
+    fi
+done < "$LOG_FILE"
+
+# Berechne Dauer des letzten Blocks (falls aktuell aktiv)
+if [[ -n "$previous_timestamp" ]]; then
+    last_duration=$(( $(date +%s) - previous_timestamp ))
+else
+    last_duration=0
+fi
+
+# Ausgabe für Nutzer
+echo "Letzter Block: $previous_type ($((last_duration / 60))m)"
+echo "Gesamtfortschritt heute:"
+echo "  - Arbeit: $((total_work_time / 3600))h $(((total_work_time % 3600) / 60))m"
+echo "  - Pausen: $((total_break_time / 3600))h $(((total_break_time % 3600) / 60))m"
