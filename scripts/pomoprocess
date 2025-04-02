@@ -35,3 +35,4 @@ echo "Total Break Time: $((total_break_time / 3600))h $(((total_break_time % 360
 
 echo "Total Work Time: $((total_work_time / 3600))h $(((total_work_time % 3600) / 60))m"
 echo "Total Break Time: $((total_break_time / 3600))h $(((total_break_time % 3600) / 60))m"
+pomo stop
