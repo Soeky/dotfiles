@@ -101,7 +101,7 @@ alias repos='cd $REPOS'
 alias ghrepos='cd $GHREPOS'
 alias rwdot='cd $REPOS/github.com/rwxrob/dot'
 alias scripts='cd $GHREPOS/dotfiles/scripts'
-alias yltm='cd $GHREPOS/yltm/'
+alias yltm='cd $GHREPOS/yltm.io/'
 alias comp='cd $GHREPOS/cp/'
 alias aoc='cd $GHREPOS/aoc/'
 alias gendev='cd $GHREPOS/gendev/'
@@ -126,14 +126,11 @@ alias ev='v ~/.config/nvim/init.lua'
 alias sbr='source ~/.bashrc'
 
 
-# pomo alias
-POMO_LOG="$HOME/logs/.pomo_sessions.log"
-POMO_SCRIPT="$SCRIPTS/pomo_script"
-
-alias focus='echo "$(date +%s) work" >> $POMO_LOG && $POMO_SCRIPT && pomo start 25m'
-alias focusp='echo "$(date +%s) break" >> $POMO_LOG && $POMO_SCRIPT && pomo start 5m'
-alias focushour='echo "$(date +%s) work" >> $POMO_LOG && $POMO_SCRIPT && pomo start hour'
-alias lp='echo "$(date +%s) break" >> $POMO_LOG && $POMO_SCRIPT && pomo start 15m'
+# pomo aliases
+alias focus='pomo start fokus'
+alias focusp='pomo break 5m'
+alias focushour='pomo start 1h fokus'
+alias lp='pomo break 15m'
 
 # fzf aliases
 # use fp to do a fzf search and preview the files

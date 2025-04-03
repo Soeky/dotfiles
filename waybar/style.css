@@ -1,30 +1,58 @@
-#custom-disk,
-#custom-cpu,
-#custom-memory,
-#custom-pomodoro,
-#clock,
-#custom-battery {
-  padding-right: 8px;
-  padding-left: 8px;
-  border-right: 1px solid #6c3483;
-  color: white;
-}
-
-#bar {
-  /* Schwarze Bar mit 50% Transparenz */
-  border: none;
-  /* Optional: Entfernt Bar-Rahmen */
-}
-
-window#waybar {
-  color: rgba(255, 255, 255, 1);
-  background: transparent;
-}
-
+/* === ALLGEMEIN === */
 * {
   border: none;
   font-family: 'JetBrainsMono Nerd Font', 'Symbols Only';
   font-size: 16px;
   min-height: 30px;
-  /* height: 30px; */
+}
+
+window#waybar {
+  background: transparent;
+  color: white;
+}
+
+#bar {
+  border: none;
+  padding: 0 8px;
+}
+
+
+/* === WORKSPACES === */
+#workspaces {
+  padding: 0 10px;
+}
+
+
+/* === MODULE-STYLING MIT TRENNLINIEN & ABSTAND === */
+#custom-disk,
+#custom-cpu,
+#custom-memory,
+#custom-volume,
+#custom-pomodoro,
+#custom-battery,
+#clock {
+  padding-left: 10px;
+  padding-right: 10px;
+  border-right: 1px solid #6c3483;
+  margin-left: 4px;
+  margin-right: 4px;
+  color: white;
+}
+
+/* Letztes Modul ohne rechte Linie */
+#clock {
+  border-right: none;
+}
+
+/* Optional: Hover Effekt für visuelles Feedback */
+#custom-disk:hover,
+#custom-cpu:hover,
+#custom-memory:hover,
+#custom-pomodoro:hover,
+#custom-volume:hover,
+#custom-battery:hover,
+#clock:hover {
+  background: rgba(108, 52, 131, 0.15);
+  border-radius: 6px;
+  transition: background 0.2s ease;
 }

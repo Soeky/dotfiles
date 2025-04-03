@@ -1,10 +1,23 @@
 {
-    "layer": "top",
-    "position": "top",
-    "height": 20,
-    "modules-left": ["hyprland/workspaces"],
-    "modules-center": [],
-    "modules-right": ["custom/disk", "custom/cpu", "custom/memory", "custom/pomodoro", "custom/battery", "clock"],
+  "layer": "top",
+  "position": "top",
+  "height": 20,
+
+  "modules-left": ["hyprland/workspaces"],
+  "modules-center": [],
+  "modules-right": ["group/sysinfo", "group/productivity", "custom/volume", "clock"],
+
+  "group/sysinfo": {
+    "orientation": "horizontal",
+    "modules": ["custom/disk", "custom/cpu", "custom/memory"],
+    "class": "module-box"
+  },
+
+  "group/productivity": {
+    "orientation": "horizontal",
+    "modules": ["custom/pomodoro", "custom/battery"],
+    "class": "module-box"
+  },
 
   "hyprland/workspaces": {
     "disable-scroll": true,
@@ -13,51 +26,60 @@
     "warp-on-scroll": false,
     "format": "{icon}",
     "format-icons": {
-      "1": "<span color='#6c3483' > </span>",
-      "2": "<span color='#6c3483' > </span>",
-      "3": "<span color='#6c3483' > </span>",
-      "4": "<span color='#6c3483' > </span>",
-      "5": "<span color='#6c3483' > </span>",
-      "6": "<span color='#6c3483' > </span>",
-      "7": "<span color='#6c3483' > </span>",
-      "default": "<span color='#6c3483'>󰊠</span>",
+      "1": "<span color='#6c3483'> </span>",
+      "2": "<span color='#6c3483'> </span>",
+      "3": "<span color='#6c3483'> </span>",
+      "4": "<span color='#6c3483'> </span>",
+      "5": "<span color='#6c3483'> </span>",
+      "6": "<span color='#6c3483'> </span>",
+      "7": "<span color='#6c3483'> </span>",
+      "default": "<span color='#6c3483'>󰊠</span>"
     },
-    "persistent-workspaces": {
-        "*": 3
-    }
+    "persistent-workspaces": { "*": 3 }
   },
 
-    "clock": {
-        "format": "{:%Y-%m-%d %H:%M:%S}"
-    },
+  "clock": {
+    "format": "{:%Y-%m-%d %H:%M:%S}",
+    "interval": 1,
+    "class": "module-box"
+  },
 
-    "custom/disk": {
-        "exec": "/home/seymen/repos/github.com/Soeky/dotfiles/scripts/disk",
-        "return-type": "text",
-        "interval": 30
-    },
+  "custom/disk": {
+    "exec": "/home/seymen/repos/github.com/Soeky/dotfiles/scripts/disk",
+    "return-type": "text",
+    "interval": 30
+  },
 
-    "custom/cpu": {
-        "exec": "/home/seymen/repos/github.com/Soeky/dotfiles/scripts/cpuusage",
-        "return-type": "text",
-        "interval": 2
-    },
+  "custom/cpu": {
+    "exec": "/home/seymen/repos/github.com/Soeky/dotfiles/scripts/cpuusage",
+    "return-type": "text",
+    "interval": 2
+  },
 
-    "custom/memory": {
-        "exec": "/home/seymen/repos/github.com/Soeky/dotfiles/scripts/memory",
-        "return-type": "text",
-        "interval": 2
-    },
+  "custom/memory": {
+    "exec": "/home/seymen/repos/github.com/Soeky/dotfiles/scripts/memory",
+    "return-type": "text",
+    "interval": 2
+  },
 
-    "custom/pomodoro": {
-        "exec": "/home/seymen/repos/github.com/Soeky/dotfiles/scripts/pomoS",
-        "return-type": "text",
-        "interval": 1
-    },
+  "custom/pomodoro": {
+    "exec": "pomo status",
+    "return-type": "text",
+    "interval": 1
+  },
 
-    "custom/battery": {
-        "exec": "/home/seymen/repos/github.com/Soeky/dotfiles/scripts/battery",
-        "return-type": "text",
-        "interval": 30
-    }
+  "custom/battery": {
+    "exec": "/home/seymen/repos/github.com/Soeky/dotfiles/scripts/battery",
+    "return-type": "text",
+    "interval": 30
+  },
+
+  "custom/volume": {
+    "exec": "~/.config/waybar/volume.sh",
+    "interval": 1,
+    "return-type": "text",
+    "format": "{}",
+    "tooltip": false,
+    "class": "module-box"
+  }
 }
