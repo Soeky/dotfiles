@@ -1,38 +1,10 @@
 #!/bin/bash
 
-# Define log file and date format
-LOG_FILE="$HOME/logs/.pomo_sessions.log"
+
 today=$(date '+%Y-%m-%d')
 note_path="$NOTES/Periodic Notes/0_Daily/$today.md"
 
-# Initialize counters
-total_work_time=0
-total_break_time=0
-last_timestamp=0
-last_type=""
-
-# Process each log entry
-while IFS=' ' read -r timestamp type; do
-    entry_date=$(date -d @"$timestamp" '+%Y-%m-%d')
-    
-    if [[ "$entry_date" == "$today" ]]; then
-        if [[ -n "$last_timestamp" && "$last_type" == "work" ]]; then
-            total_work_time=$((total_work_time + timestamp - last_timestamp))
-        elif [[ -n "$last_timestamp" && "$last_type" == "break" ]]; then
-            total_break_time=$((total_break_time + timestamp - last_timestamp))
-        fi
-
-        # Update last timestamp and type
-        last_timestamp=$timestamp
-        last_type=$type
-    fi
-done < "$LOG_FILE"
-
 # Append summary to today's Obsidian note
 echo -e "\n# Pomodoro Summary\n" >> "$note_path"
-echo "Total Work Time: $((total_work_time / 3600))h $(((total_work_time % 3600) / 60))m" >> "$note_path"
-echo "Total Break Time: $((total_break_time / 3600))h $(((total_break_time % 3600) / 60))m" >> "$note_path"
-
-echo "Total Work Time: $((total_work_time / 3600))h $(((total_work_time % 3600) / 60))m"
-echo "Total Break Time: $((total_break_time / 3600))h $(((total_break_time % 3600) / 60))m"
+pomo stat day >> "$note_path"
 pomo stop
