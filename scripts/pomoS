@@ -1,5 +1,5 @@
 #!/bin/bash
 
-pomo_status=$(/home/seymen/go/bin/pomo print)
+pomo_status=$(/home/seymen/go/bin/pomo status)
 echo "$pomo_status"
 
