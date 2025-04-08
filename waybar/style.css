@@ -22,6 +22,15 @@ window#waybar {
   padding: 0 10px;
 }
 
+#workspaces button.active {
+  background: rgba(23, 212, 205, 0.2);
+  border-radius: 6px;
+  color: #17d4cd;
+}
+
+#workspaces button.urgent {
+  background: rgba(255, 0, 0, 0.3);
+}
 
 /* === MODULE-STYLING MIT TRENNLINIEN & ABSTAND === */
 #custom-disk,
@@ -33,7 +42,7 @@ window#waybar {
 #clock {
   padding-left: 10px;
   padding-right: 10px;
-  border-right: 1px solid #6c3483;
+  border-right: 1px solid #17d4cd;
   margin-left: 4px;
   margin-right: 4px;
   color: white;
