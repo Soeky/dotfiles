@@ -1,11 +1,11 @@
 {
   "layer": "top",
   "position": "top",
-  "height": 30,
+  "height": 20,
 
   "modules-left": ["hyprland/workspaces"],
   "modules-center": [],
-  "modules-right": ["group/sysinfo", "group/productivity", "custom/volume", "clock"],
+  "modules-right": ["group/sysinfo", "group/productivity", "clock"],
 
   "group/sysinfo": {
     "orientation": "horizontal",
@@ -15,7 +15,7 @@
 
   "group/productivity": {
     "orientation": "horizontal",
-    "modules": ["custom/pomodoro", "custom/battery"],
+    "modules": ["custom/pomodoro", "custom/battery", "custom/volume"],
     "class": "module-box"
   },
 
@@ -26,14 +26,14 @@
     "warp-on-scroll": false,
     "format": "{icon}",
     "format-icons": {
-      "1": "<span color='#17d4cd'> </span>",
-      "2": "<span color='#17d4cd'> </span>",
-      "3": "<span color='#17d4cd'> </span>",
-      "4": "<span color='#17d4cd'> </span>",
-      "5": "<span color='#17d4cd'> </span>",
-      "6": "<span color='#17d4cd'> </span>",
-      "7": "<span color='#17d4cd'> </span>",
-      "default": "<span color='#17d4cd'>󰊠</span>"
+      "1": "<span color='#6c3483'> </span>",
+      "2": "<span color='#6c3483'> </span>",
+      "3": "<span color='#6c3483'> </span>",
+      "4": "<span color='#6c3483'> </span>",
+      "5": "<span color='#6c3483'> </span>",
+      "6": "<span color='#6c3483'> </span>",
+      "7": "<span color='#6c3483'> </span>",
+      "default": "<span color='#6c3483'>󰊠</span>"
     },
     "persistent-workspaces": { "*": 3 }
   },
@@ -63,7 +63,7 @@
   },
 
   "custom/pomodoro": {
-    "exec": "pomo status",
+    "exec": "/home/seymen/repos/github.com/Soeky/dotfiles/scripts/pomoS",
     "return-type": "text",
     "interval": 1
   },
@@ -74,12 +74,4 @@
     "interval": 30
   },
 
-  "custom/volume": {
-    "exec": "~/.config/waybar/volume.sh",
-    "interval": 1,
-    "return-type": "text",
-    "format": "{}",
-    "tooltip": false,
-    "class": "module-box"
-  }
 }
