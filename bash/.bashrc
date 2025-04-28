@@ -169,6 +169,10 @@ if [ -f /usr/share/git/completion/git-completion.bash ]; then
     . /usr/share/git/completion/git-completion.bash
 fi
 
+if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+fi
+
 # Bash-Syntax-Hervorhebung
 # source ~/.bash-syntax-highlighting/bash_completion
 # Fuzzy completion
