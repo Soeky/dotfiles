@@ -93,6 +93,7 @@ alias ...="cd /home/seymen/"
 alias pgdp="cd $DEV/3cs/pgdp/"
 alias itsec="cd $DEV/3cs/itsec/"
 alias gbs="cd $DEV/3cs/gbs/"
+alias grnvs="cd $DEV/4cs/grnvs/"
 
 # Repos
 alias dev='cd $DEV'

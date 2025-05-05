@@ -1,3 +1,7 @@
+#!/bin/bash
+
+/home/seymen/go/bin/pomo break &
+
 swaylock \
 	--screenshots \
 	--clock \
