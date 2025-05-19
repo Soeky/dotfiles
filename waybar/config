@@ -26,13 +26,13 @@
     "warp-on-scroll": false,
     "format": "{icon}",
     "format-icons": {
-      "1": "<span color='#6c3483'> </span>",
-      "2": "<span color='#6c3483'> </span>",
-      "3": "<span color='#6c3483'> </span>",
-      "4": "<span color='#6c3483'> </span>",
-      "5": "<span color='#6c3483'> </span>",
-      "6": "<span color='#6c3483'> </span>",
-      "7": "<span color='#6c3483'> </span>",
+      "1": "<span color='#6c3483'>1:  </span>",
+      "2": "<span color='#6c3483'>2:  </span>",
+      "3": "<span color='#6c3483'>3:  </span>",
+      "4": "<span color='#6c3483'>4:  </span>",
+      "5": "<span color='#6c3483'>5:  </span>",
+      "6": "<span color='#6c3483'>6:  </span>",
+      "7": "<span color='#6c3483'>7:  </span>",
       "default": "<span color='#6c3483'>󰊠</span>"
     },
     "persistent-workspaces": { "*": 3 }
