@@ -1,6 +1,6 @@
 #!/bin/bash
 
-/home/seymen/go/bin/pomo break &
+/home/seymen/go/bin/pomo break 1s &
 
 swaylock \
 	--screenshots \
