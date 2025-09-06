@@ -6,5 +6,5 @@ note_path="$NOTES/Periodic Notes/0_Daily/$today.md"
 
 # Append summary to today's Obsidian note
 echo -e "\n# Pomodoro Summary\n" >> "$note_path"
-pomo stat day >> "$note_path"
 pomo stop
+pomo stat day >> "$note_path"
